@@ -1,4 +1,3 @@
-#!/bin/sh
 # Creating the directory
 mkdir ./bin 2>/tmp/null
 mkdir ./build 2>/tmp/null
