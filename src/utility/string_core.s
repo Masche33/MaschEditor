@@ -6,9 +6,6 @@
 # 64 bit: Size
 # 64 bit: Point to the actual string
 
-# string:
-# 
-
 # INPUT:
 # - RDI: Size
 # OUTPUT
@@ -18,6 +15,7 @@
 _create_string:
     # PRESERVING IMPORTANT REGISTER
 
+    push r8
     push rsi
     push rdx
     push rdi      # PUSH SIZE OF STRING
@@ -47,14 +45,16 @@ _create_string:
     xor r9, r9    # null Offset
     syscall
 
-    test rax, rax   
-    js mmapFailed
+    test rax, rax  # Did the syscall fail 
+    js mmapFailed  # Handling fail
 
-    pop r11
+    pop r11        
     mov [r11+8], rax
 
+    # Restoring register
     pop rdx
     pop rsi
+    pop r8
     mov rax, r11 # Ret the struct
 
     ret
@@ -71,6 +71,8 @@ mmapFailed:
 # OUTPUT
 # Frees the memory
 _destroy_string:
+
+    # Preserving register
     push rsi
     push rdi
     mov r8, [rdi]    # Size 
@@ -86,6 +88,7 @@ _destroy_string:
     mov rsi, 16
     syscall
 
+    # Restore register
     pop rsi
     ret 
 

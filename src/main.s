@@ -3,11 +3,14 @@
 .section .text
 
 _start:
-    mov rdi, 120
-    call _create_string
+
+
+    mov rdi, 100
+    call _stdin_read_string
 
     mov rdi, rax
-    call _destroy_string
+
+    call _stdout_print_string
 
     # Terminazione del programma
     mov rax, 60           # syscall number per sys_exit (60)
