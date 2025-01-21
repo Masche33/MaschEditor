@@ -11,7 +11,6 @@
 _create_file:
     push rax
     push rsi
-    push rdi
     push rdx
     # Open
     mov rax, 2
@@ -26,7 +25,6 @@ _create_file:
     syscall
 
     pop rdx
-    pop rdi
     pop rsi
     pop rax
 
