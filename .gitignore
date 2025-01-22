@@ -1,4 +1,6 @@
 /bin
 /build
 MaschEditor
-/*.sh
+/compile.sh
+/new_project.sh
+/test.sh
