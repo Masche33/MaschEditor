@@ -3,7 +3,7 @@
 .section .text
 
 .include "./src/utility/string_core.s"
-.include "./src/utility/string_util.s"
+.include "./src/utility/string_io.s"
 
 _start:
 

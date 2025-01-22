@@ -27,4 +27,4 @@ In a project directory creates the starting point of the project.
 
 ### Tests:
 
-- Not yet implemented
+- compile all test and compare the output given the inputs

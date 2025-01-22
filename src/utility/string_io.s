@@ -44,7 +44,8 @@ charcopy:
 
 # INPUT:
 # - RDI: str_pointer
-# OUTPUT
+# EFFECTS:
+# - Prints the string in stdout
 _stdout_print_string:
     mov r8, [rdi]
     mov r9, [rdi+8]
