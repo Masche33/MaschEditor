@@ -1,3 +1,4 @@
+# Checking if there was the project
 if [ -z "$1" ]; then
     echo "Error: project name was not specified."
     echo "Utilizzo: $0 <nome_progetto>"
