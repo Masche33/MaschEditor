@@ -46,7 +46,7 @@ _create_string:
     syscall
 
     test rax, rax  # Did the syscall fail 
-    js mmapFailed  # Handling fail
+    js .mmapFailed  # Handling fail
 
     pop r11        
     mov [r11+8], rax
@@ -59,7 +59,7 @@ _create_string:
 
     ret
 
-mmapFailed:
+.mmapFailed:
     mov rax, 60     
     mov rdi, -1     
     syscall

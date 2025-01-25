@@ -1,6 +1,7 @@
 /bin
 /build
+/waste
 MaschEditor
-/compile.sh
-/new_project.sh
-/test.sh
+compile.sh
+new_project.sh
+test.sh

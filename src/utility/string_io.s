@@ -21,6 +21,9 @@ _stdin_read_string:
     mov rax, 0
     syscall
 
+    push r9
+    pop r9
+
     # ALLOCATE SPACE
     mov rdi, rax
     call _create_string
@@ -30,12 +33,12 @@ _stdin_read_string:
     mov r11, [rax+8]
     xor r10, r10
 
-charcopy:
+.charcopy:
     mov r12, [rsp+r10]
     mov [r11+r10], r12
     inc r10
     cmp r10, r9
-    jle charcopy
+    jle .charcopy
 
     # RETURN
 
