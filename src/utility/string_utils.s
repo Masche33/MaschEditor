@@ -1,22 +1,33 @@
 .intel_syntax noprefix
+.globl _char_at
+.section .text
+
 
 # INPUT:
-#  - RDI: str_pointer
-#  - RSI: char to look for
+#- RDI: str_pointer
+#- RSI: char to look for
 # OUTPUT:
-#  - RAX: -1 if the char is not found or the index of it if found
+#- RAX: -1 if the char is not found or the index of it if found
 _char_at:
-    # GET THE STRING ADDRES
-    # GET THE CHAR
-
-    # FOR (i:= 0; i < size; i++)
-    # IF(str[i]==CHAR)jmp found
-
-    jmp .notFound
+  # GET THE STRING ADDRES
+  
+  mov r8, [rdi]   # String size
+  mov r9, [rdi+8] # String pointer
+  
+  xor r11, r11
+  xor r10, r10
+.getChar:
+  mov r11b, byte [r9]
+  cmp r11b, sil
+  je .found
+  inc r9
+  inc r10
+  cmp r10, r8
+  jl .getChar
+  jmp .notFound
 .found:
-
-    ret
-
+  mov rax, r10
+  ret
 .notFound:
-    mov rax, -1
-    ret
+  mov rax, -1
+  ret
