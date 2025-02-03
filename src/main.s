@@ -7,14 +7,19 @@ _start:
   mov rdi, 100
   call _stdin_read_string
 
-  #mov rdi, rax
-  #mov rsi, 0x6f
-  #call _char_at
+  mov rdi, rax
+  push rdi
+  call _string_to_int
 
+
+  mov r8, rax
   #test r8, -1
   #je .final
-  
+
+
+
   mov rdi, rax
+  pop rdi
   call _stdout_print_string
 
 .final:
