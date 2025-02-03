@@ -53,6 +53,7 @@ _stdout_print_string:
   mov r8, [rdi]
   mov r9, [rdi+8]
 
+
   mov rsi, r9
   mov rdx, r8
   mov rdi, 1

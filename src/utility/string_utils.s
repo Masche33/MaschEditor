@@ -13,6 +13,8 @@ _char_at:
   
   mov r8, [rdi]   # String size
   mov r9, [rdi+8] # String pointer
+
+  sub r9, 1
   
   xor r11, r11
   xor r10, r10
