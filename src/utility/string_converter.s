@@ -51,7 +51,17 @@ _string_to_int:
 # OUTPUT:
 # - RAX: str_pointer to a string equivalent to RDI
 _int_to_string:
+    # RES = 0
+    # buffer = RDI % 10
+    # buffer += 48
+    # push buffer
+    # rdi /= 10
+    # (Do it while RDI != 0)
 
 
 
+    push 0x0a
 
+    # CREATE STRING
+    # RETURN 
+    ret
