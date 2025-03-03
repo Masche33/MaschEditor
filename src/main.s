@@ -11,12 +11,10 @@ _start:
   push rdi
   call _string_to_int
 
+  mov rdi, rax
+  call _int_to_string
 
-  mov r8, rax
-  #test r8, -1
-  #je .final
-
-
+  nop
 
   mov rdi, rax
   pop rdi
